@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }} - Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout1.css') }}">
+    </head>
+    <body>
+        <nav>
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('post') }}">Post</a>
+            <a href="{{ url_for('account') }}">Account</a>   
+            <a href="{{ url_for('logout') }}">Logout</a>            
+            {% else %}
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('login') }}">Login</a>     
+            <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </nav>
+       {% block body_content %}{% endblock %}
+    </body>
+</html>
