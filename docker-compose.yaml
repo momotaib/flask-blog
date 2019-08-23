@@ -3,7 +3,7 @@ services:
 
   flask-app:
     image: flask-app
-    build .
+    build: .
     ports:
       - target: 5000
         published: 80
